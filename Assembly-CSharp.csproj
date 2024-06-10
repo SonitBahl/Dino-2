@@ -65,7 +65,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\BearEndlessRunnerController.cs" />
-    <Compile Include="Assets\Scripts\AnimationDemo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

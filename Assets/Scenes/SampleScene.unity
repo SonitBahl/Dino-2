@@ -181,8 +181,8 @@ MonoBehaviour:
     m_Bits: 4294967295
   mainCamera: {fileID: 963194228}
   cameraFollowSpeed: 5
-  cameraDistance: 7
-  cameraHeight: 2
+  cameraDistance: 5
+  cameraHeight: 3
 --- !u!136 &510221449
 CapsuleCollider:
   m_ObjectHideFlags: 0
