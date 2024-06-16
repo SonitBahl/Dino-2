@@ -5,16 +5,16 @@ namespace BLINK
     public class BearEndlessRunnerController : MonoBehaviour
     {
         public float moveSpeed = 5f;
-        public float jumpForce = 10f;
+        public float jumpForce = 6f;
         public float horizontalSpeed = 5f; // Speed for moving left and right
         public Transform mainCamera;
         public float cameraFollowSpeed = 5f;
         public float cameraDistance = 5f;
-        public float cameraHeight = 2f;
+        public float cameraHeight = 3f;
 
         private Rigidbody rb;
         private bool canJump = true;
-        private float jumpCooldown = 2f; // Cooldown time in seconds
+        private float jumpCooldown = 1f; // Cooldown time in seconds
         private float jumpTimer = 0f;
 
         private void Start()
