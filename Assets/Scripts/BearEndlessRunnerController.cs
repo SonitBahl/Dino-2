@@ -7,15 +7,15 @@ namespace BLINK
         public float moveSpeed = 5f;
         public float jumpForce = 10f;
         public float horizontalSpeed = 5f; // Speed for moving left and right
-        public Transform groundCheck;
-        public LayerMask groundMask;
         public Transform mainCamera;
         public float cameraFollowSpeed = 5f;
         public float cameraDistance = 5f;
         public float cameraHeight = 2f;
 
         private Rigidbody rb;
-        private bool isGrounded;
+        private bool canJump = true;
+        private float jumpCooldown = 2f; // Cooldown time in seconds
+        private float jumpTimer = 0f;
 
         private void Start()
         {
@@ -25,13 +25,22 @@ namespace BLINK
 
         private void Update()
         {
-            // Check if the bear is grounded
-            isGrounded = Physics.CheckSphere(groundCheck.position, 0.1f, groundMask);
+            // Update jump cooldown timer
+            if (!canJump)
+            {
+                jumpTimer += Time.deltaTime;
+                if (jumpTimer >= jumpCooldown)
+                {
+                    canJump = true;
+                    jumpTimer = 0f;
+                }
+            }
 
             // Handle input for jumping
-            if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+            if (Input.GetKeyDown(KeyCode.Space) && canJump)
             {
                 rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+                canJump = false; // Disable jumping until cooldown is over
             }
         }
 
@@ -41,16 +50,7 @@ namespace BLINK
             Vector3 forwardMove = transform.forward * moveSpeed;
 
             // Handle horizontal movement input
-            float horizontalInput = 0f;
-            if (Input.GetKey(KeyCode.A))
-            {
-                horizontalInput = -horizontalSpeed;
-            }
-            else if (Input.GetKey(KeyCode.D))
-            {
-                horizontalInput = horizontalSpeed;
-            }
-
+            float horizontalInput = Input.GetAxis("Horizontal") * horizontalSpeed;
             Vector3 horizontalMove = transform.right * horizontalInput;
             Vector3 movement = forwardMove + horizontalMove;
 

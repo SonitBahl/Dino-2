@@ -1,24 +1,24 @@
 ﻿using UnityEngine;
 
-public class GroundSpawner : MonoBehaviour {
-
+public class GroundSpawner : MonoBehaviour
+{
     [SerializeField] GameObject groundTile;
     Vector3 nextSpawnPoint;
 
-    public void SpawnTile (bool spawnItems)
+    public LayerMask groundLayerMask; // Layer mask for ground detection
+
+    public void SpawnTile()
     {
         GameObject temp = Instantiate(groundTile, nextSpawnPoint, Quaternion.identity);
+        temp.layer = LayerMask.NameToLayer("Default"); // Assigning "Ground" layer to spawned tiles
         nextSpawnPoint = temp.transform.GetChild(1).transform.position;
     }
 
-    public void SpawnTile ()
+    private void Start()
     {
-        SpawnTile(false); // Default to false if no parameter is provided
-    }
-
-    private void Start () {
-        for (int i = 0; i < 15; i++) {
-            SpawnTile(); // Call the parameterless version
+        for (int i = 0; i < 15; i++)
+        {
+            SpawnTile();
         }
     }
 }

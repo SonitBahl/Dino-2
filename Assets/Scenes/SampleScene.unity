@@ -153,7 +153,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!4 &510221446 stripped
 Transform:
@@ -175,10 +175,6 @@ MonoBehaviour:
   moveSpeed: 5
   jumpForce: 10
   horizontalSpeed: 5
-  groundCheck: {fileID: 1803050317027892810, guid: 5f4ec99903908bb4eb43840b491dad7f, type: 3}
-  groundMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
   mainCamera: {fileID: 963194228}
   cameraFollowSpeed: 5
   cameraDistance: 5
@@ -236,6 +232,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   groundTile: {fileID: 1013840581825909112, guid: 5f4ec99903908bb4eb43840b491dad7f, type: 3}
+  groundLayerMask:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!4 &600112948
 Transform:
   m_ObjectHideFlags: 0
