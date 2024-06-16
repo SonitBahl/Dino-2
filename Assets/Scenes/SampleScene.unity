@@ -177,8 +177,8 @@ MonoBehaviour:
   horizontalSpeed: 5
   mainCamera: {fileID: 963194228}
   cameraFollowSpeed: 5
-  cameraDistance: 5
-  cameraHeight: 3
+  cameraDistance: 3
+  cameraHeight: 2
 --- !u!136 &510221449
 CapsuleCollider:
   m_ObjectHideFlags: 0
