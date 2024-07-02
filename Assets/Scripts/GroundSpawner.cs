@@ -10,7 +10,7 @@ public class GroundSpawner : MonoBehaviour
     public void SpawnTile()
     {
         GameObject temp = Instantiate(groundTile, nextSpawnPoint, Quaternion.identity);
-        temp.layer = LayerMask.NameToLayer("Default"); // Assigning "Ground" layer to spawned tiles
+        temp.layer = LayerMask.NameToLayer("Default"); 
         nextSpawnPoint = temp.transform.GetChild(1).transform.position;
     }
 

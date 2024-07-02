@@ -6,7 +6,7 @@ namespace BLINK
     {
         public float moveSpeed = 5f;
         public float jumpForce = 6f;
-        public float horizontalSpeed = 5f; // Speed for moving left and right
+        public float horizontalSpeed = 5f; 
         public Transform mainCamera;
         public float cameraFollowSpeed = 5f;
         public float cameraDistance = 5f;
